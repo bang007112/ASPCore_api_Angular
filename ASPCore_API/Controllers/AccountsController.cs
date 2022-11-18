@@ -139,7 +139,7 @@ namespace ASPCore_API.Controllers
                         var authClaims = new List<Claim>
                         {
                             new Claim("Id", user.Id),
-                            new Claim(ClaimTypes.Name, user.UserName)
+                            new Claim(ClaimTypes.Name, user.UserName),
                         };
 
                         var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
@@ -150,9 +150,11 @@ namespace ASPCore_API.Controllers
                                 claims: authClaims,
                                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256));
 
+                        var handler = new JwtSecurityTokenHandler();
+                        var jwtSecurityToken = handler.WriteToken(token);
                         return Ok(new
                         {
-                            token = token.EncodedPayload
+                            token = jwtSecurityToken
                         });
                     }
                 }
