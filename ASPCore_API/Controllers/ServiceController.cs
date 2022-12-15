@@ -132,6 +132,14 @@ namespace Dental_Clinic_NET.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        /// <summary>
+        /// It takes a request object, finds the service in the database, updates the service with the
+        /// request object, and returns a response
+        /// </summary>
+        /// <param name="UpdateService"></param>
+        /// <returns>
+        /// The response is a string.
+        /// </returns>
         [HttpPut]
         public IActionResult Update(UpdateService request)
         {

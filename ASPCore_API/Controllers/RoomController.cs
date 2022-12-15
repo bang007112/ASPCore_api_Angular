@@ -135,6 +135,13 @@ namespace Dental_Clinic_NET.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        /// <summary>
+        /// It updates a room in the database
+        /// </summary>
+        /// <param name="UpdateRoom"></param>
+        /// <returns>
+        /// The response is a JSON object with the following structure:
+        /// </returns>
         [HttpPut]
         public IActionResult Update(UpdateRoom request)
         {

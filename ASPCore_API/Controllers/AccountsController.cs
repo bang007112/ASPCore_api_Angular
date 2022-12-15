@@ -32,7 +32,7 @@ namespace ASPCore_API.Controllers
         {
             get;
         }
-        public AccountsController(IConfiguration configuration,UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager)
+        public AccountsController(IConfiguration configuration, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _configuration = configuration;
             _userManager = userManager;
@@ -52,10 +52,11 @@ namespace ASPCore_API.Controllers
                         errors = new string[] { "Invalid Token" }
                     });
                 }
-                else{
+                else
+                {
                     IdentityUser userIdentity = new IdentityUser() { UserName = user.Username, Email = user.Email, PhoneNumber = user.PhoneNumber };
                     var createResult = await _userManager.CreateAsync(userIdentity, user.Password);
-                    if(createResult.Succeeded)
+                    if (createResult.Succeeded)
                     {
                         return Ok("Sign Up Succeeded");
                     }
@@ -64,8 +65,8 @@ namespace ASPCore_API.Controllers
                         return BadRequest(createResult);
                     }
                 }
-                
-                
+
+
             }
             catch (Exception ex)
             {
@@ -73,61 +74,82 @@ namespace ASPCore_API.Controllers
             }
         }
         [HttpGet]
-        public IActionResult Get(){
-            try{ 
+        public IActionResult Get()
+        {
+            try
+            {
                 return Ok(_userManager.Users);
-            }catch(Exception ex){
+            }
+            catch (Exception ex)
+            {
                 return BadRequest();
             }
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUser(string id){
-            try{ 
-                IdentityUser user  = await _userManager.FindByIdAsync(id); 
-                return Ok(new UserDTO(){
+        public async Task<IActionResult> GetUser(string id)
+        {
+            try
+            {
+                IdentityUser user = await _userManager.FindByIdAsync(id);
+                return Ok(new UserDTO()
+                {
                     Id = user.Id,
                     UserName = user.UserName,
                     Email = user.Email,
                     Password = user.PasswordHash,
                     PhoneNumber = user.PhoneNumber
                 });
-            }catch(Exception ex){
+            }
+            catch (Exception ex)
+            {
                 return BadRequest();
             }
         }
         [HttpPut]
-        public async Task<IActionResult> Update(string id, InputUsers inputUsers){
-            try{ 
-                if( await _userManager.FindByIdAsync(id) != null){
-                   IdentityUser user = await _userManager.FindByIdAsync(id);
-                   if(inputUsers.Username!=null && inputUsers.Username != "") user.UserName = inputUsers.Username;
-                   
-                   if(inputUsers.Email!=null && inputUsers.Email != "") user.Email = inputUsers.Email;
-                   if(inputUsers.PhoneNumber!=null && inputUsers.PhoneNumber != "") user.PhoneNumber = inputUsers.PhoneNumber;
+        public async Task<IActionResult> Update(string id, InputUsers inputUsers)
+        {
+            try
+            {
+                /* Checking if the user exists, if it does, it will update the user. */
+                if (await _userManager.FindByIdAsync(id) != null)
+                {
+                    IdentityUser user = await _userManager.FindByIdAsync(id);
+                    if (inputUsers.Username != null && inputUsers.Username != "") user.UserName = inputUsers.Username;
+
+                    if (inputUsers.Email != null && inputUsers.Email != "") user.Email = inputUsers.Email;
+                    if (inputUsers.PhoneNumber != null && inputUsers.PhoneNumber != "") user.PhoneNumber = inputUsers.PhoneNumber;
                     await _userManager.UpdateAsync(user);
-                    if(inputUsers.Password!=null && inputUsers.Password != "") await _userManager.ChangePasswordAsync(user,user.PasswordHash,inputUsers.Password);
-                   return Ok();
+                    if (inputUsers.Password != null && inputUsers.Password != "") await _userManager.ChangePasswordAsync(user, user.PasswordHash, inputUsers.Password);
+                    return Ok();
                 }
                 return BadRequest();
-            }catch(Exception ex){
+            }
+            catch (Exception ex)
+            {
                 return BadRequest();
             }
         }
         [HttpDelete]
-        public async Task<IActionResult> Delete(string id){
-            try{ 
+        public async Task<IActionResult> Delete(string id)
+        {
+            try
+            {
                 IdentityUser user = await _userManager.FindByIdAsync(id);
-                if(user!=null){
+                if (user != null)
+                {
                     await _userManager.DeleteAsync(user);
                     return Ok();
                 }
                 return BadRequest();
-            }catch(Exception ex){
+            }
+            catch (Exception ex)
+            {
                 return BadRequest();
             }
         }
         [HttpPost("/api/Accounts/Login")]
-        public async Task<IActionResult> Login(Login account){
+        public async Task<IActionResult> Login(Login account)
+        {
             try
             {
                 IdentityUser user = await _userManager.FindByNameAsync(account.Username);

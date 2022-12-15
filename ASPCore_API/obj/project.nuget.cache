@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KcIDA9G9ky0T4NkFa32fDKFMWUxfBUhYBYSvlXk9GCeCMdGj6+aUxLBJsTeO59MSe+5sDpGotO75nycF8tvtEw==",
+  "dgSpecHash": "k8lJAkkT8aytHb2A7//HoQ8CCM1X35gk/nXsxpD0QPoQ6kWrcQZRPuzC5Z+mh9C1gdGF4XaXpGVR+KE/2X9kig==",
   "success": true,
-  "projectFilePath": "D:\\Asp.net_core_Api\\DemoAngular_ASPCore_Api\\ASPCore_API\\ASPCore_API.csproj",
+  "projectFilePath": "D:\\Asp.net_core_Api\\DemoAngular_ASPCore_Api\\ASPCore_Api\\ASPCore_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bang0\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\bang0\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

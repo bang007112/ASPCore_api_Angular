@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Asp.net_core_Api\\DemoAngular_ASPCore_Api\\ASPCore_API\\ASPCore_API.csproj": {}
+    "D:\\Asp.net_core_Api\\DemoAngular_ASPCore_Api\\ASPCore_Api\\ASPCore_API.csproj": {}
   },
   "projects": {
-    "D:\\Asp.net_core_Api\\DemoAngular_ASPCore_Api\\ASPCore_API\\ASPCore_API.csproj": {
+    "D:\\Asp.net_core_Api\\DemoAngular_ASPCore_Api\\ASPCore_Api\\ASPCore_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Asp.net_core_Api\\DemoAngular_ASPCore_Api\\ASPCore_API\\ASPCore_API.csproj",
+        "projectUniqueName": "D:\\Asp.net_core_Api\\DemoAngular_ASPCore_Api\\ASPCore_Api\\ASPCore_API.csproj",
         "projectName": "ASPCore_API",
-        "projectPath": "D:\\Asp.net_core_Api\\DemoAngular_ASPCore_Api\\ASPCore_API\\ASPCore_API.csproj",
+        "projectPath": "D:\\Asp.net_core_Api\\DemoAngular_ASPCore_Api\\ASPCore_Api\\ASPCore_API.csproj",
         "packagesPath": "C:\\Users\\bang0\\.nuget\\packages\\",
-        "outputPath": "D:\\Asp.net_core_Api\\DemoAngular_ASPCore_Api\\ASPCore_API\\obj\\",
+        "outputPath": "D:\\Asp.net_core_Api\\DemoAngular_ASPCore_Api\\ASPCore_Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bang0\\AppData\\Roaming\\NuGet\\NuGet.Config",
